@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dashboard"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "altair==6.2.2",
+    "pandas==3.0.5",
+    "streamlit==1.62.0",
+]
+
+[dependency-groups]
+dev = [
+    "black==25.1.0",
+    "flake8==7.3.0",
+    "pytest==8.4.1",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[tool.setuptools.packages.find]
+include = ["dashboard*"]
+
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
